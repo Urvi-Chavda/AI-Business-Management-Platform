@@ -1,6 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import Home from "../pages/Home";
+import Features from "../pages/Features";
+import Solutions from "../pages/Solutions";
+import Pricing from "../pages/Pricing";
 import NotFound from "../pages/NotFound";
 
 import Authentication from "../pages/auth/Authentication";
@@ -16,12 +19,13 @@ import KanbanBoard from "../pages/projects/KanbanBoard";
 function AppRoutes() {
   return (
     <Routes>
-      {/* =========================
-          PUBLIC ROUTES
-      ========================== */}
-
+      {/* Landing Pages */}
       <Route path="/" element={<Home />} />
+      <Route path="/features" element={<Features />} />
+      <Route path="/solutions" element={<Solutions />} />
+      <Route path="/pricing" element={<Pricing />} />
 
+      {/* Authentication */}
       <Route
         path="/authentication"
         element={<Authentication />}
@@ -37,23 +41,11 @@ function AppRoutes() {
         element={<Authentication initialPage="register" />}
       />
 
-      {/* =========================
-          DASHBOARD
-      ========================== */}
+      {/* Dashboard */}
+      <Route path="/dashboard" element={<Dashboard />} />
 
-      <Route
-        path="/dashboard"
-        element={<Dashboard />}
-      />
-
-      {/* =========================
-          PROJECT MANAGEMENT
-      ========================== */}
-
-      <Route
-        path="/projects"
-        element={<Projects />}
-      />
+      {/* Project Management */}
+      <Route path="/projects" element={<Projects />} />
 
       <Route
         path="/projects/create"
@@ -75,14 +67,8 @@ function AppRoutes() {
         element={<ProjectDetails />}
       />
 
-      {/* =========================
-          NOT FOUND
-      ========================== */}
-
-      <Route
-        path="/404"
-        element={<NotFound />}
-      />
+      {/* 404 */}
+      <Route path="/404" element={<NotFound />} />
 
       <Route
         path="*"

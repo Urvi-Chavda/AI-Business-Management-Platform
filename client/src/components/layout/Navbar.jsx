@@ -1,95 +1,81 @@
-import { useNavigate } from "react-router-dom";
-import { FiArrowRight, FiMenu, FiX } from "react-icons/fi";
-import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { FaArrowRight, FaBars } from "react-icons/fa6";
 
-function Navbar({ onLoginClick, onRegisterClick }) {
-  const navigate = useNavigate();
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleLogin = () => {
-    setMenuOpen(false);
-
-    if (onLoginClick) {
-      onLoginClick();
-    } else {
-      navigate("/login");
-    }
-  };
-
-  const handleRegister = () => {
-    setMenuOpen(false);
-
-    if (onRegisterClick) {
-      onRegisterClick();
-    } else {
-      navigate("/register");
-    }
-  };
-
+const Navbar = () => {
   return (
     <header className="main-navbar">
       <div className="navbar-container">
-        <button
-          type="button"
-          className="navbar-brand"
-          onClick={() => navigate("/")}
-        >
-          <span className="brand-logo">AI</span>
+        {/* LOGO */}
+        <Link to="/" className="navbar-brand">
+          <div className="navbar-logo">
+            AI
+          </div>
 
-          <span className="brand-content">
+          <div className="navbar-brand-text">
             <strong>AI Business</strong>
-            <small>Management Platform</small>
-          </span>
-        </button>
+            <span>Management Platform</span>
+          </div>
+        </Link>
 
-        <nav className={`navbar-menu ${menuOpen ? "navbar-menu-open" : ""}`}>
-          <button type="button" onClick={() => navigate("/")}>
+        {/* NAVIGATION */}
+        <nav className="navbar-links">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
             Home
-          </button>
+          </NavLink>
 
-          <button type="button" onClick={() => navigate("/#features")}>
+          <NavLink
+            to="/features"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
             Features
-          </button>
+          </NavLink>
 
-          <button type="button" onClick={() => navigate("/#solutions")}>
+          <NavLink
+            to="/solutions"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
             Solutions
-          </button>
+          </NavLink>
 
-          <button type="button" onClick={() => navigate("/#pricing")}>
+          <NavLink
+            to="/pricing"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
             Pricing
-          </button>
+          </NavLink>
         </nav>
 
+        {/* RIGHT ACTIONS */}
         <div className="navbar-actions">
-          <button
-            type="button"
-            className="navbar-login-btn"
-            onClick={handleLogin}
-          >
+          <Link to="/login" className="navbar-login-btn">
             Login
-          </button>
+          </Link>
 
-          <button
-            type="button"
-            className="navbar-register-btn"
-            onClick={handleRegister}
-          >
+          <Link to="/register" className="navbar-start-btn">
             Get Started
-            <FiArrowRight />
-          </button>
+            <FaArrowRight />
+          </Link>
         </div>
 
-        <button
-          type="button"
-          className="navbar-menu-button"
-          onClick={() => setMenuOpen((current) => !current)}
-          aria-label="Toggle navigation menu"
-        >
-          {menuOpen ? <FiX /> : <FiMenu />}
+        {/* MOBILE BUTTON */}
+        <button className="navbar-mobile-button">
+          <FaBars />
         </button>
       </div>
     </header>
   );
-}
+};
 
 export default Navbar;
