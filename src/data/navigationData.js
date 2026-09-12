@@ -1,0 +1,96 @@
+import {
+  FaChartPie,
+  FaFolderOpen,
+  FaTasks,
+  FaUsers,
+  FaFileInvoiceDollar,
+  FaUserFriends,
+  FaCalendarAlt,
+  FaComments,
+  FaBell,
+  FaRobot,
+  FaChartLine,
+  FaUserShield,
+  FaCog,
+} from "react-icons/fa";
+
+export const navigationItems = [
+  {
+    id: 1,
+    label: "Dashboard",
+    path: "/dashboard",
+    icon: FaChartPie,
+  },
+  {
+    id: 2,
+    label: "Projects",
+    path: "/projects",
+    icon: FaFolderOpen,
+  },
+  {
+    id: 3,
+    label: "Tasks",
+    path: "/tasks",
+    icon: FaTasks,
+  },
+  {
+    id: 4,
+    label: "CRM",
+    path: "/crm/clients",
+    icon: FaUsers,
+  },
+  {
+    id: 5,
+    label: "Invoices",
+    path: "/invoices",
+    icon: FaFileInvoiceDollar,
+  },
+  {
+    id: 6,
+    label: "Team",
+    path: "/team/employees",
+    icon: FaUserFriends,
+  },
+  {
+    id: 7,
+    label: "Calendar",
+    path: "/calendar",
+    icon: FaCalendarAlt,
+  },
+  {
+    id: 8,
+    label: "Messages",
+    path: "/messages",
+    icon: FaComments,
+  },
+  {
+    id: 9,
+    label: "Notifications",
+    path: "/notifications",
+    icon: FaBell,
+  },
+  {
+    id: 10,
+    label: "AI Assistant",
+    path: "/ai-assistant",
+    icon: FaRobot,
+  },
+  {
+    id: 11,
+    label: "Analytics",
+    path: "/analytics",
+    icon: FaChartLine,
+  },
+  {
+    id: 12,
+    label: "Admin Panel",
+    path: "/admin",
+    icon: FaUserShield,
+  },
+  {
+    id: 13,
+    label: "Settings",
+    path: "/settings",
+    icon: FaCog,
+  },
+];

@@ -1,0 +1,606 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "Inter", sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================================================
+   PROFESSIONAL MAIN NAVBAR
+========================================================= */
+
+.main-navbar {
+  width: 100%;
+  height: 76px;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.navbar-container {
+  width: min(1240px, calc(100% - 48px));
+  height: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* =========================================================
+   BRAND / LOGO
+========================================================= */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-logo {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb 0%,
+    #4f46e5 55%,
+    #7c3aed 100%
+  );
+
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 800;
+
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.22);
+}
+
+.navbar-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.navbar-brand-text strong {
+  color: #0f172a;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.navbar-brand-text span {
+  margin-top: 4px;
+
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* =========================================================
+   CENTER NAVIGATION
+========================================================= */
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nav-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 15px;
+
+  color: #475569;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  border-radius: 9px;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #2563eb;
+  background: #f8faff;
+}
+
+/* Active page */
+
+.nav-link.active {
+  color: #2563eb;
+}
+
+.nav-link.active::after {
+  content: "";
+
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 4px;
+
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #6d4aff
+  );
+
+  border-radius: 20px;
+}
+
+/* =========================================================
+   RIGHT BUTTONS
+========================================================= */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+}
+
+.navbar-login-btn {
+  height: 44px;
+  min-width: 78px;
+
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dbe2ea;
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #1e293b;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition: all 0.2s ease;
+}
+
+.navbar-login-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.08);
+}
+
+.navbar-start-btn {
+  height: 44px;
+
+  padding: 0 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb 0%,
+    #4f46e5 55%,
+    #6d4aff 100%
+  );
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.navbar-start-btn svg {
+  font-size: 12px;
+}
+
+.navbar-start-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.28);
+}
+
+/* =========================================================
+   MOBILE BUTTON
+========================================================= */
+
+.navbar-mobile-button {
+  display: none;
+
+  width: 43px;
+  height: 43px;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #0f172a;
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .navbar-container {
+    width: min(94%, 1240px);
+    gap: 15px;
+  }
+
+  .navbar-links {
+    gap: 2px;
+  }
+
+  .nav-link {
+    padding: 11px 9px;
+    font-size: 13px;
+  }
+
+  .navbar-brand-text span {
+    display: none;
+  }
+
+  .navbar-start-btn {
+    padding: 0 15px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .main-navbar {
+    height: 68px;
+  }
+
+  .navbar-container {
+    width: calc(100% - 30px);
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-actions {
+    display: none;
+  }
+
+  .navbar-mobile-button {
+    display: flex;
+  }
+
+  .navbar-logo {
+    width: 42px;
+    height: 42px;
+
+    font-size: 15px;
+    border-radius: 11px;
+  }
+
+  .navbar-brand-text strong {
+    font-size: 16px;
+  }
+
+  .navbar-brand-text span {
+    display: block;
+    font-size: 10px;
+  }
+}
+
+
+/* ======================================
+   GLOBAL THEME VARIABLES
+====================================== */
+
+:root {
+  --app-bg: #f8fafc;
+  --surface-bg: #ffffff;
+  --surface-secondary: #f8fafc;
+
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+
+  --border-color: #e2e8f0;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+
+  --input-bg: #ffffff;
+
+  --sidebar-bg: #0f172a;
+  --sidebar-text: #cbd5e1;
+
+  --shadow-color: rgba(15, 23, 42, 0.08);
+}
+
+
+/* ======================================
+   DARK THEME
+====================================== */
+
+[data-theme="dark"] {
+  --app-bg: #0f172a;
+  --surface-bg: #111827;
+  --surface-secondary: #1e293b;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --border-color: #334155;
+
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --primary-light: #172554;
+
+  --input-bg: #1e293b;
+
+  --sidebar-bg: #020617;
+  --sidebar-text: #cbd5e1;
+
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+
+/* ======================================
+   BODY
+====================================== */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+
+  background: var(--app-bg);
+  color: var(--text-primary);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* ======================================
+   COMMON DASHBOARD BACKGROUND
+====================================== */
+
+.dashboard-layout,
+.dashboard-main,
+.dashboard-content {
+  background: var(--app-bg);
+  color: var(--text-primary);
+}
+
+
+/* ======================================
+   COMMON CARDS
+====================================== */
+
+[data-theme="dark"] article,
+[data-theme="dark"] .settings-content-card,
+[data-theme="dark"] .settings-tabs-card,
+[data-theme="dark"] .settings-info-card,
+[data-theme="dark"] .profile-main-card,
+[data-theme="dark"] .profile-info-card,
+[data-theme="dark"] .subscription-current-card,
+[data-theme="dark"] .subscription-plan-card,
+[data-theme="dark"] .subscription-info-card,
+[data-theme="dark"] .payment-main-card,
+[data-theme="dark"] .payment-summary-card {
+  background: var(--surface-bg);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+
+/* ======================================
+   DARK TEXT
+====================================== */
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] strong {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] label {
+  color: var(--text-secondary);
+}
+
+
+/* ======================================
+   FORM ELEMENTS
+====================================== */
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: var(--text-muted);
+}
+
+
+/* ======================================
+   BUTTON / TABLE SURFACES
+====================================== */
+
+[data-theme="dark"] table {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] th {
+  background: var(--surface-secondary);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] td {
+  border-color: var(--border-color);
+}
+
+
+/* ======================================
+   SETTINGS DARK FIX
+====================================== */
+
+[data-theme="dark"] .settings-tab-button {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .settings-tab-button:hover {
+  background: var(--surface-secondary);
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .settings-tab-button.active {
+  background: #172554;
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .settings-toggle-row {
+  background: var(--surface-bg);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .settings-toggle-list {
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .settings-security-card {
+  background: var(--surface-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .settings-theme-card {
+  background: var(--surface-bg);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .settings-theme-card.active {
+  background: #172554;
+  border-color: #3b82f6;
+}
+
+
+/* ======================================
+   COMPACT MODE
+====================================== */
+
+[data-compact="true"] .dashboard-content {
+  padding: 14px !important;
+}
+
+[data-compact="true"] article,
+[data-compact="true"] .settings-content-card,
+[data-compact="true"] .profile-info-card,
+[data-compact="true"] .subscription-info-card {
+  padding: 12px !important;
+}
+
+[data-compact="true"] .settings-toggle-row {
+  min-height: 48px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
